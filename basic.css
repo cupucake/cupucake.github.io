@@ -6,6 +6,7 @@ body {
   background-color: blue;
 }
 .multiselect {
+  padding-bottom: 200px;
   width: 100%;
 }
 .multiselect2 {
