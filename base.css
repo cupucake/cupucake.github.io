@@ -1,13 +1,13 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background-color: #ccff99; /*turquoise*/
+  background-color: #B0C3FE; /*turquoise*/
 }
 
 /* comment */
 #container {
   width: 1000px;
   margin: 0 auto; /*spacing outside border*/
-  background-color: #99ccff;
+  background-color: #5C80F0;
   color: black; /*font color*/
   overflow: hidden; /*stretches to include everything*/
   margin-top: 80px;
