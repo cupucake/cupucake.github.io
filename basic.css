@@ -44,6 +44,18 @@ body {
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
+#checkboxes2 {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes2 label {
+  display: block;
+}
+
+#checkboxes2 label:hover {
+  background-color: #1e90ff;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
