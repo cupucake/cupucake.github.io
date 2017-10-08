@@ -8,14 +8,14 @@
     <link rel="stylesheet" type="text/css" href="static/css/basic.css" />
   </head>
   <body>
-   <img src = "./static/Artboard 1.png">
+    <h1> FinVenture</h1>
         <h2> Your travel cost comparison guide. </h2>
 <form action="Daphne" method="post">
   <p> How long is your stay? </p>
   <select name="Number of Days">
-    <option value="1">one day</option>
-    <option value="2">two days</option>
-    <option value="3">three days</option>
+    <option value="one">one day</option>
+    <option value="two">two days</option>
+    <option value="three">three days</option>
   </select>
   <p> How much are you willing to spend?</p>
   <select name="Budget">
@@ -27,25 +27,25 @@
   </select>
   <p> Pick your travel load. </p>
   <select name="Amount of Planned Activity">
-    <option value="0">light(2 planned activities/day)</option>
-    <option value="1">medium(3 planned activities/day)</option>
-    <option value="2">busy(5 planned activities/day)</option>
+    <option value="light">light(2 planned activities/day)</option>
+    <option value="medium">medium(3 planned activities/day)</option>
+    <option value="busy">busy(5 planned activities/day)</option>
   </select>
   <p> Rank Importance of Food, Accomodation, and Activities (In that Order). 
   <select name="Food">
-    <option value="1">first</option>
-    <option value="2">second</option>
-    <option value="3">third</option>
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
   </select>
   <select name="Accomodation">
-    <option value="1">first</option>
-    <option value="2">second</option>
-    <option value="3">third</option>
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
   </select>
   <select name="Activities">
-    <option value="1">first</option>
-    <option value="2">second</option>
-    <option value="3">third</option>
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
   </select>
   <p> Pick the cities you would like to compare. <p>
   {% for c in cities %}
