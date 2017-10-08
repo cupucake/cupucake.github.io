@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+from sparkpost import SparkPost
+
 client = MongoClient('mongodb://daphne:password@ds036577.mlab.com:36577/traveldata')
 
 db = client.traveldata
@@ -24,6 +26,7 @@ def plan(cities, interests, numDays, budget, busy, ranking):
                 cityEvents[k][orderedEvents[k][i]] = retVal[1][i]
         itinerary[k] = cityPlan #add city plan to iterinary
         start += len(cityEvents[k])
+    sendEmail(itinerary)
     return itinerary
 
 
@@ -293,5 +296,34 @@ def reduceByInterests(cityData, interests):
         filteredData[d["name"]] = city
     return (filteredData, sortedNames)
 
+def sendEmail(plan):
+    emailtext = "Hello daphne \n This is your travel plan: \n" 
 
+    for key in plan.keys():
+        citytext = ""
+        cityName = key
+        cityPlan = plan[key]
+        citytext += cityName + ": \n"
+        for day in cityPlan.keys():
+            citytext += "day " + str(day) + ": \n"
+            dayPlan = cityPlan[day]
+            for event in dayPlan.keys():
+                temp =  event + ": " + str(dayPlan[event]) + " \n"
+                citytext += temp
+
+        emailtext += citytext + " \n \n"
+    print(emailtext)
+    sp = SparkPost('3fde7f3ebdbfee6fb82b7fdef81530735a54e44f')
+    response = sp.transmissions.send(
+    recipients=[
+        "dnhuch@berkeley.edu"
+      
+       ],
+     reply_to='no-reply@sparkpostmail.com',
+
+    text=emailtext,
+    from_email='dnhuch@fin-venture.org',
+    subject='Your Travel Plans'
+   
+    )
 print(plan(["Paris"], ["historic art", "nightlife"], 1, 300,0, ["food", "accomodations", "activities"]))
