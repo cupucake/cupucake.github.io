@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <center> 
+    <title>FinVenture</title>
+  </center>
+    <link rel="stylesheet" type="text/css" href="static/css/basic.css" />
+  </head>
+  <body>
+    <h1> FinVenture</h1>
+        <h2> Your travel cost comparison guide. </h2>
+<form action="Daphne" method="post">
+  <p> How long is your stay? </p>
+  <select name="Number of Days">
+    <option value="one">one day</option>
+    <option value="two">two days</option>
+    <option value="three">three days</option>
+  </select>
+  <p> How much are you willing to spend?</p>
+  <select name="Budget">
+    <option value="100">$100</option>
+    <option value="200">$200</option>
+    <option value="300">$300</option>
+    <option value="400">$400</option>
+    <option value="500">$500</option>
+  </select>
+  <p> Pick your travel load. </p>
+  <select name="Amount of Planned Activity">
+    <option value="light">light(2 planned activities/day)</option>
+    <option value="medium">medium(3 planned activities/day)</option>
+    <option value="busy">busy(5 planned activities/day)</option>
+  </select>
+  <p> Rank Importance of Food, Accomodation, and Activities (In that Order). 
+  <select name="Food">
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
+  </select>
+  <select name="Accomodation">
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
+  </select>
+  <select name="Activities">
+    <option value="first">first</option>
+    <option value="second">second</option>
+    <option value="third">third</option>
+  </select>
+  <p> Pick the cities you would like to compare. <p>
+  {% for c in cities %}
+        <input type="checkbox" name="{{c}}" id="{{c}}" /> <label for={{c}}>  {{c}}</label>  <br>
+        {% endfor %}
+        <br>
+  <p> Pick your interests. <p>
+  {% for j in inter %}
+        <input type="checkbox" name="{{j}}" id="{{j}}" /> <label for={{j}}>  {{j}}</label>  <br>
+        {% endfor %}
+        <br>
+  
+        <input type="submit" value="Submit">
+</form>
+        <!-- <input type="checkbox" name="Berlin" value = "Germany">Berlin<br>
+        <input type="checkbox" name="London" value = "England">London<br>
+        <input type="checkbox" name="Rome" value = "Italy">Rome<br>
+        <input type="checkbox" name="Paris" value = "France">Paris<br>
+
+  <div class="multiselect">
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option>Select your interests</option>
+      </select>
+    <div id="checkboxes2">
+      <label for="Modern Art">
+        <input type="checkbox" id="Modern Art" />ModernArt</label>
+      <label for="Historic Art">
+        <input type="checkbox" id="Historic Art" />HistoricArt</label>
+      <label for="Architecture">
+        <input type="checkbox" id="Architecture" />Architecture</label>
+      <label for="Outdoors">
+        <input type="checkbox" id="Outdoors" />Outdoors</label>
+      <label for="Night Life">
+        <input type="checkbox" id="Night Life" />NightLife</label>
+      <label for="Churches and Temples">
+        <input type="checkbox" id="Churches and Temples" />ChurchesandTemples</label>
+      <label for="Markets">
+        <input type="checkbox" id="Markets" />Markets</label>
+      <label for="Movies">
+        <input type="checkbox" id="Movies" />Movies</label>
+    </div>
+  </div>
+</div>
+<input type="submit" value="Submit">
+</form> -->
+</html>
+<!-- Any additional JavaScript files you want to include -->
