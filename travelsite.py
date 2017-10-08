@@ -65,10 +65,9 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
         usedTypes = []
         i = 0
 
-
         if end > len(sortedCityEvents):
             return "We don't have that many events sorry!"
-       
+
         for activity in range(0, end):
             while i < len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
@@ -80,9 +79,10 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
     
             plan["activity " + str(activity)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
+            usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
             sortedEventNames.pop(i)
-            i-=1
+        
         
 
     if ranking[1] == "accomodations":
@@ -110,7 +110,7 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
         if end > len(sortedCityEvents):
             return "We don't have that many events sorry!"
         for activity in range(0, end):
-            while i < len(sortedCityEvents) and sortedCityEvents[i]["type"] in usedTypes:
+            while i < len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
             if i == len(sortedCityEvents) and sortedCityEvents[i-1]["type"]  in usedTypes:
                 i = 0
@@ -120,9 +120,9 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
     
             plan["activity " + str(activity)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
+            usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
             sortedEventNames.pop(i)
-            i-=1
     if runningBudget < 0:
         return "We cannot make a plan for this price in this city!"
 
@@ -169,8 +169,7 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
         if end > len(sortedCityEvents):
             return "We don't have that many events sorry!"
         for activity in range(0, end):
-
-            while i < len(sortedCityEvents) and sortedCityEvents[i]["type"] in usedTypes:
+            while i < len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
             if i == len(sortedCityEvents) and sortedCityEvents[i-1]["type"]  in usedTypes:
                 i = 0
@@ -180,9 +179,9 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
     
             plan["activity " + str(activity)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
+            usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
             sortedEventNames.pop(i)
-            i-=1
 
 
     if runningBudget > 0:
