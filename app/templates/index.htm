@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type='text/javascript' src = 'static/js/base.js?v=7'>
-</script>
 
   <center> 
     <title>FinVenture</title>
@@ -13,33 +10,61 @@
   <body>
     <h1> FinVenture</h1>
         <h2> Your travel cost comparison guide. </h2>
+<form action="Daphne" method="post">
   <p> How long is your stay? </p>
   <select name="Number of Days">
-    <option value="one">one</option>
-    <option value="two">two</option>
-    <option value="three">two</option>
+    <option value="1">one day</option>
+    <option value="2">two days</option>
+    <option value="3">three days</option>
   </select>
   <p> How much are you willing to spend?</p>
   <select name="Budget">
-    <option value="100">onehundred</option>
-    <option value="200">twohundred</option>
-    <option value="300">threehundred</option>
-    <option value="400">fourhundred</option>
-    <option value="500">fivehundred</option>
+    <option value="100">$100</option>
+    <option value="200">$200</option>
+    <option value="300">$300</option>
+    <option value="400">$400</option>
+    <option value="500">$500</option>
   </select>
   <p> Pick your travel load. </p>
   <select name="Amount of Planned Activity">
-    <option value="light">light</option>
-    <option value="medium">medium</option>
-    <option value="busy">busy</option>
+    <option value="0">light(2 planned activities/day)</option>
+    <option value="1">medium(3 planned activities/day)</option>
+    <option value="2">busy(5 planned activities/day)</option>
   </select>
-</div>
-        <input type="checkbox" name="Madrid" value = "Spain">Madrid<br>
-        <input type="checkbox" name="Berlin" value = "Germany">Berlin<br>
+  <p> Rank Importance of Food, Accomodation, and Activities (In that Order). 
+  <select name="Food">
+    <option value="1">first</option>
+    <option value="2">second</option>
+    <option value="3">third</option>
+  </select>
+  <select name="Accomodation">
+    <option value="1">first</option>
+    <option value="2">second</option>
+    <option value="3">third</option>
+  </select>
+  <select name="Activities">
+    <option value="1">first</option>
+    <option value="2">second</option>
+    <option value="3">third</option>
+  </select>
+  <p> Pick the cities you would like to compare. <p>
+  {% for c in cities %}
+        <input type="checkbox" name="{{c}}" id="{{c}}" /> <label for={{c}}>  {{c}}</label>  <br>
+        {% endfor %}
+        <br>
+  <p> Pick your interests. <p>
+  {% for j in inter %}
+        <input type="checkbox" name="{{j}}" id="{{j}}" /> <label for={{j}}>  {{j}}</label>  <br>
+        {% endfor %}
+        <br>
+  
+        <input type="submit" value="Submit">
+</form>
+        <!-- <input type="checkbox" name="Berlin" value = "Germany">Berlin<br>
         <input type="checkbox" name="London" value = "England">London<br>
         <input type="checkbox" name="Rome" value = "Italy">Rome<br>
         <input type="checkbox" name="Paris" value = "France">Paris<br>
-<form action="/Daphne" method="post">
+
   <div class="multiselect">
     <div class="selectBox" onclick="showCheckboxes()">
       <select>
@@ -66,6 +91,6 @@
   </div>
 </div>
 <input type="submit" value="Submit">
-</form>
+</form> -->
 </html>
 <!-- Any additional JavaScript files you want to include -->

@@ -4,5 +4,138 @@
 </head>
 <body>
 <p>Hopefully here something will print.</p>
+<!-- {% for key in itinerary.keys() 
+  header = {{key}}%}
+  <p>header<p>
+{% endfor %} -->
+<!-- {% for key in itinerary.keys() %}
+   header = {{key}}
+   plan = output[{{key}}]
+   i = 1
+   breakfasts = []
+   lunches = []
+   dinners = []
+   accomodationsList = []
+   activities = []
+   dayCost = []
+   {% for i in range(0, numdays + 1) %}
+        dayplan = plan[day + i]
+        if busy == 0
+        	end = 2
+       	elif busy == 1
+       		end = 3
+       	else
+       		end = 5
+       	activityCounter = 1
+        activityList = []
+       	{% for j in range(1, end) %}
+       		activityList += dayplan["activity" +str(activityCounter)]
+       	{% endfor %}
+       	breakfast = dayplan[breakfast]
+       	lunch = dayplan[lunch]
+       	dinner = dayplan[dinner]
+       	accomodations = dayplan[accomodations]
+       	totalCost = dayplan[cost]
+        breakfasts += breakfast
+        lunches += lunch
+        dinners += dinner
+        accomodationsList += []
+        activities += activityList
+        dayCost += totalcost
+    {% endfor %}
+
+<table>
+{% for day in numdays %}
+{% if busy == 0}
+  	<tr>
+  		<th>Day: day</th>
+  	</tr>
+  	<tr>
+  		<td>breakfast: breakfasts[day]</td>
+  	</tr>
+    <tr>
+      <td>activity: activities[day][0]</td>
+    </tr>
+    <tr>
+      <td>lunch: lunches[day]</td>
+    </tr>
+    <tr>
+      <td>activity:activities[day][1] </td>
+    </tr>
+    <tr>
+      <td>dinner: dinners[day]</td>
+    </tr>
+    <tr>
+      <td>accomodations: accomodationsList[day]</td>
+    </tr>
+    <tr>
+      <td>cost: dayCost[day]</td>
+    </tr>
+{% endif %}
+{% if busy == 1 %}
+<tr>
+      <th>Day: day</th>
+    </tr>
+    <tr>
+      <td>breakfast: breakfasts[day]</td>
+    </tr>
+    <tr>
+      <td>activity: activities[day][0]</td>
+    </tr>
+    <tr>
+      <td>lunch: lunches[day]</td>
+    </tr>
+    <tr>
+      <td>activity:activities[day][1] </td>
+    </tr>
+    <tr>
+      <td>dinner: dinners[day]</td>
+    </tr>
+    <tr>
+      <td>activity:activities[day][2] </td>
+    </tr>
+    <tr>
+      <td>accomodations: accomodationsList[day]</td>
+    </tr>
+    <tr>
+      <td>cost: dayCost[day]</td>
+    </tr>
+{% endif %}
+{% if busy == 2 %}
+<tr>
+      <th>Day: day</th>
+    </tr>
+    <tr>
+      <td>breakfast: breakfasts[day]</td>
+    </tr>
+    <tr>
+      <td>activity: activities[day][0]</td>
+    </tr>
+    <tr>
+      <td>activity: activities[day][1]</td>
+    </tr>
+    <tr>
+      <td>lunch: lunches[day]</td>
+    </tr>
+    <tr>
+      <td>activity:activities[day][2] </td>
+    </tr>
+    <tr>
+      <td>activity: activities[day][3]</td>
+    </tr>
+    <tr>
+      <td>dinner: dinners[day]</td>
+    </tr>
+    <tr>
+      <td>activity:activities[day][4] </td>
+    </tr>
+    <tr>
+      <td>accomodations: accomodationsList[day]</td>
+    </tr>
+    <tr>
+      <td>cost: dayCost[day]</td>
+    </tr>
+{% endif %}
+{% endfor %} -->
 </body>
 </html>
