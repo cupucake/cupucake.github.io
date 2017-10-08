@@ -39,8 +39,8 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
     sortedCityEvents = sort[0]
     sortedEventNames = sort[1]
     if "nightlife" in interests:
-        runningBudget -= cityFilteredEvents["nightlife"]
-        runningBudget -= (2 * cityData["beer"])
+        runningBudget -= float(cityFilteredEvents["nightlife"]["price"])
+        runningBudget -= float((2 * cityData["beer"]))
     runningBudget -= float(cityData["cappuccino"])
 
     if ranking[2] == "accomodations":
@@ -77,7 +77,7 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
             while i<len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
     
-            plan["activity " + str(activity)] = sortedEventNames[i]
+            plan["activity " + str(activity + 1)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
             usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
@@ -118,7 +118,7 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
             while i<len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
     
-            plan["activity " + str(activity)] = sortedEventNames[i]
+            plan["activity " + str(activity + 1)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
             usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
@@ -177,7 +177,7 @@ def makeDayPlan(cityFilteredEvents, orderedEventNames, cityData, busy, budget, r
             while i<len(sortedEventNames) and sortedCityEvents[i]["type"] in usedTypes:
                 i+=1
     
-            plan["activity " + str(activity)] = sortedEventNames[i]
+            plan["activity " + str(activity + 1)] = sortedEventNames[i]
             runningBudget -=  float(sortedCityEvents[i]["price"])
             usedTypes.append(sortedCityEvents[i]["type"])
             sortedCityEvents.pop(i)
@@ -231,6 +231,8 @@ def sortEventsByPrice(sortedEventNames, cityEvents):
     tempNames = [sortedEventNames[0]]
     i = 1
     while i < len(cityEvents):
+        if sortedEventNames[i] == "nightlife":
+            print(cityEvents)
         if cityEvents[sortedEventNames[i]]["type"] == temp[0]["type"]:
             count = 0
             while count < len(temp) and cityEvents[sortedEventNames[i]]["price"] < temp[count]["price"]:
@@ -285,11 +287,11 @@ def reduceByInterests(cityData, interests):
             
             if "nightlife" == i:
                 names += ["nightlife"]
-                city["night life"] = {"price": d["nightlife"], "type": i}
+                city["nightlife"] = {"price": d["nightlife"], "type": i}
 
         sortedNames[d["name"]] = names            
         filteredData[d["name"]] = city
     return (filteredData, sortedNames)
 
 
-print(plan(["Paris"], ["historic art", "churches/temples", "building"], 2, 300,1, ["food", "accomodations", "activities"]))
+print(plan(["Paris"], ["historic art", "nightlife"], 1, 300,0, ["food", "accomodations", "activities"]))
